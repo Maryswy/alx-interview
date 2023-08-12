@@ -15,4 +15,6 @@ $ sudo npm install request --global
 $ export NODE_PATH=/usr/lib/node_modules
 
 
+npm install node-fetch 
+update file package.json 
 

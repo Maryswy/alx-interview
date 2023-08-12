@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-function filmRequest(url) {
+function filmRequest (url) {
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -11,11 +11,11 @@ function filmRequest(url) {
       Promise.all(characterPromises)
         .then(characters => {
           characters.forEach(charJSON => {
-            console.log(JSON.parse(charJSON).name);
-          });
+	    console.log(JSON.parse(charJSON).name);
+	  });
         })
         .catch(error => {
-          console.log(`Error: ${error}`);
+	  console.log(`Error: ${error}`);
         });
     })
     .catch(error => {
@@ -23,7 +23,7 @@ function filmRequest(url) {
     });
 }
 
-function requestChar(url) {
+function requestChar (url) {
   return fetch(url)
     .then(response => response.text())
     .catch(error => {
