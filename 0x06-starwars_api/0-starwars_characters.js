@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
 function filmRequest(url) {
   fetch(url)
