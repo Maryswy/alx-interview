@@ -85,5 +85,66 @@ To properly test the functionality and see the rotated matrix, the code should b
 
 
 
+Example:- 0-rotate_2d_matrix.py
+#!/usr/bin/python3
+"""
+Rotate 2d matrix
+"""
 
+
+def rotate_2d_matrix(matrix):
+    """
+    Given an n x n 2D matrix,
+    rotate it 90 degrees clockwise.
+    """
+    if not matrix or len(matrix) == 0:
+        return
+    n = len(matrix)
+    for i in range(n // 2):
+        for j in range(i, n - i - 1):
+            tmp = matrix[i][j]
+            matrix[i][j] = matrix[n - j - 1][i]
+            matrix[n - j - 1][i] = matrix[n - i - 1][n - j - 1]
+            matrix[n - i - 1][n - j - 1] = matrix[j][n - i - 1]
+            matrix[j][n - i - 1] = tmp   
+
+
+This code defines a function called rotate_2d_matrix that takes a 2D matrix as input and rotates it 90 degrees clockwise in-place. Let's break down the code step by step:
+
+Shebang line (#!/usr/bin/python3): This line is used to indicate the interpreter that should be used to execute the script. In this case, it specifies that the script should be run using Python 3.
+
+Docstring: The multi-line comment enclosed in triple quotes (""") is a docstring. It provides a brief description of the purpose of the script/module, which is to rotate a 2D matrix 90 degrees clockwise.
+
+Function definition: The rotate_2d_matrix function is defined. It takes a single argument, matrix, which is assumed to be a 2D square matrix (n x n matrix).
+
+Function description: A docstring inside the function provides a description of its purpose. It states that the function is meant to rotate the input matrix by 90 degrees clockwise.
+
+Input validation: The code first checks if the input matrix is empty or contains no rows (an edge case check).
+
+Variable n: The variable n is assigned the value of the length of the matrix (the number of rows or columns in the square matrix). This value is used for iterating over the matrix and for indexing.
+
+Nested loops for rotation: The code uses two nested loops to iterate through the elements of the matrix. The outer loop (for i in range(n // 2):) iterates from the first row to the middle row (inclusive), and the inner loop (for j in range(i, n - i - 1):) iterates from the current row element to the last element of the current row (excluding).
+
+Rotation logic: Inside the nested loops, the code performs an in-place rotation using a temporary variable tmp. The logic involves swapping elements in a specific pattern:
+
+Swap matrix[i][j] with matrix[n - j - 1][i]
+Swap matrix[n - j - 1][i] with matrix[n - i - 1][n - j - 1]
+Swap matrix[n - i - 1][n - j - 1] with matrix[j][n - i - 1]
+Swap matrix[j][n - i - 1] with tmp
+This swapping process effectively rotates the elements in the specified pattern, which results in rotating the entire matrix by 90 degrees clockwise.
+
+In summary, this code defines a function that takes a square matrix as input and rotates it 90 degrees clockwise in-place using element swapping.
+
+
+Requirements
+General
+Allowed editors: vi, vim, emacs
+All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.10)
+All your files should end with a new line
+The first line of all your files should be exactly #!/usr/bin/python3
+A README.md file, at the root of the folder of the project, is mandatory
+Your code should use the pycodestyle style (version 2.8.0)
+You are not allowed to import any module
+All modules and functions must be documented
+All your files must be executable
 
